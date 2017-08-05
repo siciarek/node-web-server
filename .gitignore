@@ -1,3 +1,7 @@
+# IDE project config files
+.idea
+config.js
+
 # Logs
 logs
 *.log

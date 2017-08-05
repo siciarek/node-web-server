@@ -6,10 +6,16 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan'); // Logging middleware
 const app = express();
 const router = require('./router');
+const mongoose = require('mongoose');
+
+// DB Setup
+mongoose.connect('mongodb://localhost/auth', {
+  useMongoClient: true,
+});
 
 // App Setup
 app.use(morgan('combined'));
-app.use(bodyParser.json({ type: '*/*' }));
+app.use(bodyParser.json({type: '*/*'}));
 router(app);
 
 // Server Setup
